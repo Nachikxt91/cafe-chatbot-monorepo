@@ -1,0 +1,16 @@
+diff --git a/node_modules/react-native-toast/android/build.gradle b/node_modules/react-native-toast/android/build.gradle
+index 016b460..53f97da 100644
+--- a/node_modules/react-native-toast/android/build.gradle
++++ b/node_modules/react-native-toast/android/build.gradle
+@@ -19,7 +19,7 @@ android {
+ }
+ 
+ dependencies {
+-    compile fileTree(dir: 'libs', include: ['*.jar'])
+-    compile 'com.android.support:appcompat-v7:23.0.1'
+-    compile 'com.facebook.react:react-native:0.13.+'
++    // compile fileTree(dir: 'libs', include: ['*.jar'])  // Old
++    implementation fileTree(dir: 'libs', include: ['*.jar'])  // New
++    implementation 'com.facebook.react:react-native:+'
+ }
+\ No newline at end of file

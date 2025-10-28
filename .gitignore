@@ -1,0 +1,29 @@
+# Virtual Environments - DO NOT COMMIT
+cafe/
+venv/
+env/
+.venv/
+ENV/
+*.pyc
+__pycache__/
+
+# Environment Variables
+.env
+.env.local
+*.env
+
+# Node modules (for React Native)
+node_modules/
+coffee_shop_app/node_modules/
+
+# Build outputs
+coffee_shop_app/build/
+coffee_shop_app/dist/
+coffee_shop_app/.expo/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
