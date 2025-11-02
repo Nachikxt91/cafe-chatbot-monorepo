@@ -1,10 +1,30 @@
 import { Text, View } from 'react-native'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Tabs } from 'expo-router'
 import Entypo from '@expo/vector-icons/Entypo'
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
+import { initializeAuth } from '../services/authService';
 
 const TabsLayout = () => {
+  const [authReady, setAuthReady] = useState(false);
+
+  useEffect(() => {
+    initializeAuth()
+      .then(() => {
+        console.log('Auth initialized successfully');
+        setAuthReady(true);
+      })
+      .catch((err) => {
+        console.error('Failed to initialize auth:', err);
+        // Still allow the app to continue even if auth fails
+        setAuthReady(true);
+      });
+  }, []);
+
+  if (!authReady) {
+    return <Text>Initializing...</Text>
+  }
+
   return (
     <>
         <Tabs 
@@ -22,7 +42,6 @@ const TabsLayout = () => {
                 )
             }}
             />
-
 
             <Tabs.Screen 
             name='chatRoom'
@@ -47,9 +66,6 @@ const TabsLayout = () => {
                 )
             }}
             />
-
-        
-
         </Tabs>
     </>
   )
