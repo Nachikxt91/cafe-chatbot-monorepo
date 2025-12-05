@@ -15,6 +15,7 @@ python-dotenv==1.0.1
 
 
 
+
 # ============================
 # LangChain and AI Tools (Fixed versions for Python 3.12)
 # ============================

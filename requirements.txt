@@ -12,18 +12,8 @@ python-multipart==0.0.6
 pandas==2.0.3
 python-dotenv==1.0.1
 
-# ============================
-# PyTorch (CPU-only build)
-# ============================
---extra-index-url https://download.pytorch.org/whl/cpu
-torch>=2.0.0
-torchvision>=0.15.0
-torchaudio>=2.0.0
 
-# ============================
-# Embedding Models
-# ============================
-sentence-transformers>=2.7.0
+
 
 # ============================
 # LangChain and AI Tools
