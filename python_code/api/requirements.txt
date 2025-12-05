@@ -12,23 +12,18 @@ python-multipart==0.0.6
 pandas==2.0.3
 python-dotenv==1.0.1
 
-# ============================
-# PyTorch (CPU-only build)
-# ============================
---extra-index-url https://download.pytorch.org/whl/cpu
-torch>=2.0.0
-torchvision>=0.15.0
-torchaudio>=2.0.0
+
+
 
 # ============================
-# Embedding Models
+# LangChain and AI Tools (Fixed versions for Python 3.12)
 # ============================
-
-# ============================
-# LangChain and AI Tools
-# ============================
-langchain-groq>=0.1.0
-langchain-core>=0.1.0
+langchain-core==0.2.23
+langchain==0.2.16
+langchain-community==0.2.10
+langchain-groq==0.1.6
+langchain-huggingface==0.0.3
+langsmith>=0.1.85
 groq>=0.4.0
 
 # ============================

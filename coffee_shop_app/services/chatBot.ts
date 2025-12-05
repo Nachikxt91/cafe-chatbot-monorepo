@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { MessageInterface } from '@/types/types';
 
-const API_URL = 'https://cafe-chatbot-production.up.railway.app/query';
-const HEALTH_URL = 'https://cafe-chatbot-production.up.railway.app/health';
+const API_URL = "https://nachikxt91-cafe-chatbot.hf.space/query"
+const HEALTH_URL = "https://nachikxt91-cafe-chatbot.hf.space/health"
 
 interface ChatBotAPIResponse {
     response: MessageInterface;
