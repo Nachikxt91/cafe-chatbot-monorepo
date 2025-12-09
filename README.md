@@ -1,8 +1,9 @@
 ﻿☕ Cafe Multi-Agent Chatbot System
 An intelligent coffee shop chatbot built with a multi-agent architecture, featuring specialized AI agents for different customer service tasks. The system uses LangChain, Groq LLM, and a React Native Expo frontend with a FastAPI backend.
+
 🌐 Live Deployments
-* 🤗 Backend API: HuggingFace Spaces
-* 📱 Frontend Mobile App: Expo Build
+* 🤗 Backend API: HuggingFace Spaces: https://huggingface.co/spaces/Nachikxt91/cafe-chatbot
+* 📱 Frontend Mobile App: Expo Build: https://expo.dev/accounts/nacxt/projects/coffee_shop_app/builds/0f22b913-93c3-4427-a5e2-96b51b3f2405
 
 
  📦 System Architecture - Repository Structure
@@ -17,6 +18,7 @@ text
 Deployment Repositories (maintained separately for CI/CD):
 * Backend Deployment: Dedicated repo for HuggingFace Spaces with auto-deployment
 * Frontend Deployment: Dedicated repo for Expo EAS builds
+
 🏗️ Architecture Overview
 This system employs a multi-agent conversational AI architecture where specialized agents handle different aspects of customer interaction:
 Agent System
@@ -27,6 +29,8 @@ Agent System
 * Recommendation Agent: Provides personalized suggestions using:
    * Apriori Algorithm: Recommends items frequently bought together
    * Popularity-based: Suggests trending items by category
+
+
 Tech Stack
 Backend (coffee_shop_app)
 * FastAPI for REST API
@@ -36,6 +40,7 @@ Backend (coffee_shop_app)
 * Cloudinary for product image management
 * Docker for containerization
 * HuggingFace Spaces for deployment
+
 Frontend (python_code)
 * React Native with Expo
 * TypeScript
@@ -43,10 +48,13 @@ Frontend (python_code)
 * Firebase Realtime Database integration
 * Cloudinary React Native SDK for image delivery
 * Expo EAS Build for deployment
+
 Data Storage
 * Firebase: Product catalog, menu items stored as key-value pairs
 * Cloudinary: Product images with optimized delivery
 * JSON/CSV: Apriori recommendations and popularity data
+
+
 📁 Project Structure
 text
 * .
@@ -101,82 +109,99 @@ Prerequisites
 * Firebase project credentials
 * Cloudinary account (for image hosting)
 * Pinecone API key (optional, for vector embeddings)
+
 Backend Setup
 1. Clone the repository
-bash
-   * git clone <your-repo-url>
-   * cd <repo-name>/coffee_shop_app
-   2.    3. Set up Python environment
-bash
-      * python -m venv venv
-      * source venv/bin/activate  # On Windows: venv\Scripts\activate
-      * pip install -r requirements.txt
-      4.       5. Configure environment variables
+git clone <your-repo-url>
+cd <repo-name>/coffee_shop_app
+
+2. Set up Python environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
+
+3. Configure environment variables
+
 Create a .env file in the coffee_shop_app directory:
-text
-         * # Groq LLM Configuration
-         * GROQ_API_KEY=your_groq_api_key_here
-         * MODEL_NAME=llama-3.1-70b-versatile
-         *          * # Pinecone (Optional - for vector search)
-         * PINECONE_API_KEY=your_pinecone_api_key_here
-         * PINECONE_INDEX_NAME=your_index_name_here
-         *          * # Server Configuration
-         * PORT=7860
-         6.          7. Run the backend locally
-bash
-            * python main.py
-            8.             9. The API will be available at http://localhost:7860
+
+# Groq LLM Configuration
+GROQ_API_KEY=your_groq_api_key_here
+MODEL_NAME=llama-3.1-70b-versatile
+
+# Pinecone (Optional - for vector search)
+PINECONE_API_KEY=your_pinecone_api_key_here
+PINECONE_INDEX_NAME=your_index_name_here
+
+# Server Configuration
+PORT=7860
+
+4. Run the backend locally
+python main.py
+
+
+The API will be available at:
+http://localhost:7860
+
+
 Frontend Setup
-            1. Navigate to frontend directory
-bash
-               * cd python_code
-               2.                3. Install dependencies
-bash
-                  * npm install
-                  * # or
-                  * yarn install
-                  4.                   5. Configure environment variables
+1. Navigate to frontend directory
+cd python_code
+
+2. Install dependencies
+npm install
+# or
+yarn install
+
+3. Configure environment variables
+
 Create a .env file in the python_code directory:
-text
-                     * # HuggingFace Backend API
-                     * HF_TOKEN=your_hf_token_here
-                     *                      * # Groq Configuration (if using from frontend)
-                     * GROQ_API_KEY=your_groq_api_key_here
-                     * MODEL_NAME=llama-3.1-8b-instant
-                     *                      * # Firebase Configuration
-                     * EXPO_PUBLIC_FIREBASE_API_KEY=your_api_key
-                     * EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
-                     * EXPO_PUBLIC_FIREBASE_DATABASE_URL=https://your_project.firebaseio.com
-                     * EXPO_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
-                     * EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
-                     * EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
-                     * EXPO_PUBLIC_FIREBASE_APP_ID=your_app_id
-                     * EXPO_PUBLIC_FIREBASE_MEASUREMENT_ID=your_measurement_id
-                     *                      * # Cloudinary Configuration (for image hosting)
-                     * CLOUDINARY_API_KEY=your_cloudinary_api_key
-                     * CLOUDINARY_API_SECRET=your_cloudinary_secret
-                     * CLOUDINARY_CLOUD_NAME=your_cloud_name
-                     *                      * # Pinecone Configuration (Optional)
-                     * PINECONE_API_KEY=your_pinecone_api_key
-                     * PINECONE_INDEX_NAME=coffeeshop
-                     *                      * # Firebase Service Account (Backend)
-                     * FIREBASE_TYPE=service_account
-                     * FIREBASE_PROJECT_ID=coffeeshop-app-xxxxx
-                     * FIREBASE_PRIVATE_KEY_ID=your_private_key_id
-                     * FIREBASE_PRIVATE_KEY=-----BEGIN PRIVATE KEY-----\nYour_Key_Here\n-----END PRIVATE KEY-----
-                     * FIREBASE_CLIENT_EMAIL=firebase-adminsdk@your_project.iam.gserviceaccount.com
-                     * FIREBASE_CLIENT_ID=your_client_id
-                     * FIREBASE_AUTH_URI=https://accounts.google.com/o/oauth2/auth
-                     * FIREBASE_TOKEN_URI=https://oauth2.googleapis.com/token
-                     * FIREBASE_AUTH_PROVIDER_X509_CERT_URL=https://www.googleapis.com/oauth2/v1/certs
-                     * FIREBASE_CLIENT_CERT_URL=https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk
-                     * FIREBASE_UNIVERSE_DOMAIN=googleapis.com
-                     6.                      7. Run the Expo app
-bash
-                        * npx expo start
-                        8.                         * Press i for iOS simulator
-                        * Press a for Android emulator
-                        * Scan QR code with Expo Go app on your phone
+
+# HuggingFace Backend API
+HF_TOKEN=your_hf_token_here
+
+# Groq Configuration (if using from frontend)
+GROQ_API_KEY=your_groq_api_key_here
+MODEL_NAME=llama-3.1-8b-instant
+
+# Firebase Configuration
+EXPO_PUBLIC_FIREBASE_API_KEY=your_api_key
+EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+EXPO_PUBLIC_FIREBASE_DATABASE_URL=https://your_project.firebaseio.com
+EXPO_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
+EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+EXPO_PUBLIC_FIREBASE_APP_ID=your_app_id
+EXPO_PUBLIC_FIREBASE_MEASUREMENT_ID=your_measurement_id
+
+# Cloudinary Configuration (for image hosting)
+CLOUDINARY_API_KEY=your_cloudinary_api_key
+CLOUDINARY_API_SECRET=your_cloudinary_secret
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+
+# Pinecone Configuration (Optional)
+PINECONE_API_KEY=your_pinecone_api_key
+PINECONE_INDEX_NAME=coffeeshop
+
+# Firebase Service Account (Backend)
+FIREBASE_TYPE=service_account
+FIREBASE_PROJECT_ID=coffeeshop-app-xxxxx
+FIREBASE_PRIVATE_KEY_ID=your_private_key_id
+FIREBASE_PRIVATE_KEY=-----BEGIN PRIVATE KEY-----\nYour_Key_Here\n-----END PRIVATE KEY-----
+FIREBASE_CLIENT_EMAIL=firebase-adminsdk@your_project.iam.gserviceaccount.com
+FIREBASE_CLIENT_ID=your_client_id
+FIREBASE_AUTH_URI=https://accounts.google.com/o/oauth2/auth
+FIREBASE_TOKEN_URI=https://oauth2.googleapis.com/token
+FIREBASE_AUTH_PROVIDER_X509_CERT_URL=https://www.googleapis.com/oauth2/v1/certs
+FIREBASE_CLIENT_CERT_URL=https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk
+FIREBASE_UNIVERSE_DOMAIN=googleapis.com
+
+4. Run the Expo app
+npx expo start
+Press i for iOS simulator
+Press a for Android emulator
+Or scan the QR code with the Expo Go app on your phone
+
+
 🎯 Key Features
 Multi-Agent Conversation Flow
                         1. User sends message → Guard Agent validates request
@@ -199,34 +224,48 @@ Image & Data Management
                         * Cloudinary Integration: Optimized image delivery for product photos
                         * Firebase Realtime Database: Fast key-value storage for menu items, prices, categories
                         * Responsive Images: Automatic image optimization based on device capabilities
+
 📡 API Endpoints
-Backend API (HuggingFace Spaces)
-Base URL: https://nachikxt91-cafe-chatbot.hf.space
-                        * POST /query - Main chatbot interaction endpoint
-json
-                           * {
-                           *   "input": {
-                           *     "messages": [
-                           *       {
-                           *         "role": "user",
-                           *         "content": "I want to order a latte"
-                           *       }
-                           *     ]
-                           *   }
-                           * }
-                           *                            * Response:
-json
-                              * {
-                              *   "role": "assistant",
-                              *   "content": "I'd be happy to help you order a latte!...",
-                              *   "memory": {
-                              *     "agent": "order_taking_agent",
-                              *     "step_number": 1,
-                              *     "order": [{"item": "Latte", "quantity": 1, "price": 4.75}]
-                              *   }
-                              * }
-                              *                               * GET /health - Health check endpoint
-                              * GET / - API status and version info
+🔗 Backend API (HuggingFace Spaces)
+
+Base URL:
+https://nachikxt91-cafe-chatbot.hf.space
+
+POST /query — Main Chatbot Interaction
+Request Body
+{
+  "input": {
+    "messages": [
+      {
+        "role": "user",
+        "content": "I want to order a latte"
+      }
+    ]
+  }
+}
+
+Example Response
+{
+  "role": "assistant",
+  "content": "I'd be happy to help you order a latte!...",
+  "memory": {
+    "agent": "order_taking_agent",
+    "step_number": 1,
+    "order": [
+      {
+        "item": "Latte",
+        "quantity": 1,
+        "price": 4.75
+      }
+    ]
+  }
+}
+
+GET /health — Health Check - Returns simple service availability status.
+
+GET / — API Status & Version Info - Returns metadata about the deployed service.
+
+
 🌐 Deployment
 Backend - HuggingFace Spaces
 The backend is deployed on HuggingFace Spaces with Docker runtime:
@@ -243,43 +282,52 @@ Environment Setup on HF Spaces:
                               * PINECONE_INDEX_NAME (optional)
 Frontend - Expo EAS Build
 The mobile app is built and deployed using Expo Application Services:
-                              * Build URL: Expo Build Dashboard
+                              * Build URL: https://expo.dev/accounts/nacxt/projects/coffee_shop_app/builds/0f22b913-93c3-4427-a5e2-96b51b3f2405
                               * Project: coffee_shop_app
                               * Account: nacxt
                               * Auto-deployment: Pushes to dedicated frontend repo trigger EAS builds
-Environment Setup for EAS:
-bash
-                              * # Configure EAS secrets
-                              * eas secret:create --name FIREBASE_API_KEY --value your_value --scope project
-                              * eas secret:create --name CLOUDINARY_API_KEY --value your_value --scope project
-                              * eas secret:create --name GROQ_API_KEY --value your_value --scope project
 
+🚀 Environment Setup for EAS (Expo Application Services)
+🔐 Configure EAS Secrets
 
-Build Commands:
-bash
-                              * # Install EAS CLI
-                              * npm install -g eas-cli
-                              *                               * # Login to Expo
-                              * eas login
-                              *                               * # Configure project
-                              * eas build:configure
-                              *                               * # Build for Android
-                              * eas build --platform android --profile production
-                              *                               * # Build for iOS
-                              * eas build --platform ios --profile production
-                              *                               * # Submit to stores
-                              * eas submit --platform android
-                              * eas submit --platform ios
+Run the following commands to securely store environment variables in Expo:
+
+eas secret:create --name FIREBASE_API_KEY --value your_value --scope project
+eas secret:create --name CLOUDINARY_API_KEY --value your_value --scope project
+eas secret:create --name GROQ_API_KEY --value your_value --scope project
+
+🛠️ Build Commands
+1️⃣ Install EAS CLI
+npm install -g eas-cli
+
+2️⃣ Login to Expo
+eas login
+
+3️⃣ Configure Project for EAS
+eas build:configure
+
+📱 Create Builds
+Android Build
+eas build --platform android --profile production
+
+iOS Build
+eas build --platform ios --profile production
+
+📤 Submit to App Stores
+eas submit --platform android
+eas submit --platform ios
 
 
 Monorepo vs Deployment Repos
                               * This Monorepo: Contains complete source code for development
                               * Backend Deployment Repo: Streamlined repo with only coffee_shop_app/ for HF Spaces
                               * Frontend Deployment Repo: Streamlined repo with only python_code/ for Expo EAS
+
 This separation allows for:
                               * Cleaner CI/CD pipelines
                               * Faster deployment builds
                               * Independent versioning
+
                               * Reduced repository size for each platform
 📦 Dependencies
 Backend (requirements.txt)
@@ -322,18 +370,19 @@ Frontend (package.json highlights)
 🗄️ Data Architecture
 Firebase Structure
 json
-                              * {
-                              *   "products": {
-                              *     "product_id_1": {
-                              *       "name": "Cappuccino",
-                              *       "category": "Coffee",
-                              *       "price": 4.50,
-                              *       "description": "Rich espresso with steamed milk",
-                              *       "imageUrl": "cloudinary://...",
-                              *       "rating": 4.5
-                              *     }
-                              *   }
-                              * }
+                               {
+                                 "products": {
+                                   "product_id_1": {
+                                     "name": "Cappuccino",
+                                     "category": "Coffee",
+                                     "price": 4.50,
+                                     "description": "Rich espresso with steamed milk",
+                                     "imageUrl": "cloudinary://...",
+                                     "rating": 4.5
+                                   }
+                                 }
+                               }
+
 
 
 Cloudinary Image Naming Convention
@@ -344,9 +393,11 @@ text
                               *   └── croissant_hero.png
 
 
+
 Recommendation Data (CSV/JSON)
                               * Apriori: Item-to-item confidence scores
                               * Popularity: Transaction counts by product and category
+
 🐛 Troubleshooting
 Common Issues
                               1. HuggingFace Space sleeping
@@ -369,11 +420,13 @@ Common Issues
                               * Verify CSV/JSON files in recommendation_objects/ are uploaded
                               * Check data format matches expected schema
                               * Ensure product names match exactly between files
+
 🧪 Testing
 Backend Tests
 bash
                               * cd coffee_shop_app
                               * pytest tests/  # Add your test files
+
 
 
 Frontend Tests
@@ -389,12 +442,7 @@ Manual Testing Checklist
                               * Recommendations appear during ordering
                               * Firebase data loads correctly
                               * Cloudinary images display properly
-🤝 Contributing
-                              1. Fork the repository
-                              2. Create a feature branch: git checkout -b feature/amazing-feature
-                              3. Commit changes: git commit -m 'Add amazing feature'
-                              4. Push to branch: git push origin feature/amazing-feature
-                              5. Open a Pull Request
+
 📝 Future Enhancements
                               * Voice input support with speech-to-text
                               * Multi-language support (i18n)
@@ -407,8 +455,10 @@ Manual Testing Checklist
                               * Progressive Web App (PWA) version
                               * Push notifications for order status
                               * Loyalty points and rewards program
+
 📄 License
 This project is licensed under the MIT License - see the LICENSE file for details.
+
 👨‍💻 Author
 Built with ❤️ as a production-grade AI/ML portfolio project showcasing:
                               * Multi-agent LLM systems
@@ -416,6 +466,7 @@ Built with ❤️ as a production-grade AI/ML portfolio project showcasing:
                               * Cloud deployment and DevOps
                               * Real-time database integration
                               * Recommendation algorithms
+
 🙏 Acknowledgments
                               * HuggingFace for free GPU-powered Space hosting
                               * Groq for blazing-fast Llama 3.1 inference
@@ -429,4 +480,8 @@ ________________
 
 ⭐ Star this repo if you find it helpful!
 
-🔗 Try the live demo: Backend API | Mobile App Build
+🔗 Try the live demo: 
+ Backend API: https:  https://huggingface.co/spaces/Nachikxt91/cafe-chatbot
+ 
+ Mobile App Build:  https://expo.dev/accounts/nacxt/projects/coffee_shop_app/builds/0f22b913-93c3-4427-a5e2-96b51b3f2405
+
