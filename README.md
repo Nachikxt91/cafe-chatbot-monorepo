@@ -166,6 +166,7 @@ GROQ_API_KEY=your_groq_api_key_here
 MODEL_NAME=llama-3.1-8b-instant
 
 Firebase Configuration
+
 EXPO_PUBLIC_FIREBASE_API_KEY=your_api_key
 EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
 EXPO_PUBLIC_FIREBASE_DATABASE_URL=https://your_project.firebaseio.com
@@ -185,6 +186,7 @@ PINECONE_API_KEY=your_pinecone_api_key
 PINECONE_INDEX_NAME=coffeeshop
 
 Firebase Service Account (Backend)
+
 FIREBASE_TYPE=service_account
 FIREBASE_PROJECT_ID=coffeeshop-app-xxxxx
 FIREBASE_PRIVATE_KEY_ID=your_private_key_id
@@ -588,6 +590,7 @@ ________________
  Backend API: https:  https://huggingface.co/spaces/Nachikxt91/cafe-chatbot
  
  Mobile App Build:  https://expo.dev/accounts/nacxt/projects/coffee_shop_app/builds/0f22b913-93c3-4427-a5e2-96b51b3f2405
+
 
 
 
