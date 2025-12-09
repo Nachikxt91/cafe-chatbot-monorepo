@@ -1,7 +1,7 @@
-﻿☕ Cafe Multi-Agent Chatbot System
+﻿# ☕ Cafe Multi-Agent Chatbot System
 An intelligent coffee shop chatbot built with a multi-agent architecture, featuring specialized AI agents for different customer service tasks. The system uses LangChain, Groq LLM, and a React Native Expo frontend with a FastAPI backend.
 
-🌐 Live Deployments
+# 🌐 Live Deployments
 * 🤗 Backend API: HuggingFace Spaces: https://huggingface.co/spaces/Nachikxt91/cafe-chatbot
 * 📱 Frontend Mobile App: Expo Build: https://expo.dev/accounts/nacxt/projects/coffee_shop_app/builds/0f22b913-93c3-4427-a5e2-96b51b3f2405
 
@@ -99,6 +99,8 @@ text
 * └── README.md             # This file
 
 
+
+
 🚀 Getting Started
 Prerequisites
 * Python 3.9+
@@ -156,14 +158,14 @@ yarn install
 
 Create a .env file in the python_code directory:
 
-# HuggingFace Backend API
+HuggingFace Backend API
 HF_TOKEN=your_hf_token_here
 
-# Groq Configuration (if using from frontend)
+Groq Configuration (if using from frontend)
 GROQ_API_KEY=your_groq_api_key_here
 MODEL_NAME=llama-3.1-8b-instant
 
-# Firebase Configuration
+Firebase Configuration
 EXPO_PUBLIC_FIREBASE_API_KEY=your_api_key
 EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
 EXPO_PUBLIC_FIREBASE_DATABASE_URL=https://your_project.firebaseio.com
@@ -173,16 +175,16 @@ EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
 EXPO_PUBLIC_FIREBASE_APP_ID=your_app_id
 EXPO_PUBLIC_FIREBASE_MEASUREMENT_ID=your_measurement_id
 
-# Cloudinary Configuration (for image hosting)
+Cloudinary Configuration (for image hosting)
 CLOUDINARY_API_KEY=your_cloudinary_api_key
 CLOUDINARY_API_SECRET=your_cloudinary_secret
 CLOUDINARY_CLOUD_NAME=your_cloud_name
 
-# Pinecone Configuration (Optional)
+Pinecone Configuration (Optional)
 PINECONE_API_KEY=your_pinecone_api_key
 PINECONE_INDEX_NAME=coffeeshop
 
-# Firebase Service Account (Backend)
+Firebase Service Account (Backend)
 FIREBASE_TYPE=service_account
 FIREBASE_PROJECT_ID=coffeeshop-app-xxxxx
 FIREBASE_PRIVATE_KEY_ID=your_private_key_id
@@ -200,6 +202,7 @@ npx expo start
 Press i for iOS simulator
 Press a for Android emulator
 Or scan the QR code with the Expo Go app on your phone
+
 
 
 
@@ -585,5 +588,6 @@ ________________
  Backend API: https:  https://huggingface.co/spaces/Nachikxt91/cafe-chatbot
  
  Mobile App Build:  https://expo.dev/accounts/nacxt/projects/coffee_shop_app/builds/0f22b913-93c3-4427-a5e2-96b51b3f2405
+
 
 
