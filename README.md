@@ -6,7 +6,7 @@ An intelligent coffee shop chatbot built with a multi-agent architecture, featur
 * 📱 Frontend Mobile App: Expo Build: https://expo.dev/accounts/nacxt/projects/coffee_shop_app/builds/0f22b913-93c3-4427-a5e2-96b51b3f2405
 
 
- 📦 System Architecture - Repository Structure
+ # 📦 System Architecture - Repository Structure
 This is a monorepo containing the complete codebase for development and testing:
 text
 * cafe-chatbot-monorepo/
@@ -19,7 +19,7 @@ Deployment Repositories (maintained separately for CI/CD):
 * Backend Deployment: Dedicated repo for HuggingFace Spaces with auto-deployment
 * Frontend Deployment: Dedicated repo for Expo EAS builds
 
-🏗️ Architecture Overview
+ # 🏗️ Architecture Overview
 This system employs a multi-agent conversational AI architecture where specialized agents handle different aspects of customer interaction:
 Agent System
 * Guard Agent: Validates user requests and filters inappropriate queries
@@ -31,7 +31,7 @@ Agent System
    * Popularity-based: Suggests trending items by category
 
 
-Tech Stack
+ # Tech Stack
 Backend (coffee_shop_app)
 * FastAPI for REST API
 * Groq API (Llama 3.1 70B) for LLM inference
@@ -55,7 +55,7 @@ Data Storage
 * JSON/CSV: Apriori recommendations and popularity data
 
 
-📁 Project Structure
+ # 📁 Project Structure
 text
 * .
 * ├── coffee_shop_app/          # Backend FastAPI application
@@ -101,7 +101,7 @@ text
 
 
 
-🚀 Getting Started
+ # 🚀 Getting Started
 Prerequisites
 * Python 3.9+
 * Node.js 18+ and npm/yarn
@@ -206,7 +206,7 @@ Or scan the QR code with the Expo Go app on your phone
 
 
 
-🎯 Key Features
+ # 🎯 Key Features
 
 Multi-Agent Conversation Flow
 
@@ -256,7 +256,7 @@ Image & Data Management
 
 
 
-📡 API Endpoints
+ # 📡 API Endpoints
 
 🔗 Backend API (HuggingFace Spaces)
 
@@ -303,7 +303,7 @@ GET /health — Health Check - Returns simple service availability status.
 GET / — API Status & Version Info - Returns metadata about the deployed service.
 
 
-🌐 Deployment
+ # 🌐 Deployment
 
 Backend - HuggingFace Spaces
 
@@ -344,7 +344,7 @@ The mobile app is built and deployed using Expo Application Services:
                               * Auto-deployment: Pushes to dedicated frontend repo trigger EAS builds
 
 
-🚀 Environment Setup for EAS (Expo Application Services)
+ # 🚀 Environment Setup for EAS (Expo Application Services)
 
 🔐 Configure EAS Secrets
 
@@ -356,7 +356,7 @@ eas secret:create --name CLOUDINARY_API_KEY --value your_value --scope project
 eas secret:create --name GROQ_API_KEY --value your_value --scope project
 
 
-🛠️ Build Commands
+ # 🛠️ Build Commands
 
 1️⃣ Install EAS CLI
 npm install -g eas-cli
@@ -370,7 +370,7 @@ eas login
 eas build:configure
 
 
-📱 Create Builds
+ # 📱 Create Builds
 
 Android Build
 eas build --platform android --profile production
@@ -406,7 +406,7 @@ This separation allows for:
                              
                               * Reduced repository size for each platform
 
-📦 Dependencies
+ # 📦 Dependencies
 
 Backend (requirements.txt)
 
@@ -433,7 +433,7 @@ Frontend (package.json highlights)
                               * axios: ^1.12.2
                               * nativewind: ^2.0.11
 
-🎨 UI Components
+ # 🎨 UI Components
 
                               * ChatScreen: Main conversation interface with typing indicators
                               * ProductList: Browse menu items with Cloudinary images
@@ -442,7 +442,7 @@ Frontend (package.json highlights)
                               * MessageBubbles: Differentiated UI for user/agent messages
                               * AgentIndicator: Visual feedback showing which agent is responding
 
-🔐 Security
+ # 🔐 Security
 
                               * Non-root user in Docker container (user: appuser)
                               * Environment variable management via platform secrets
@@ -452,7 +452,7 @@ Frontend (package.json highlights)
                               * Firebase security rules for database access
                               * Cloudinary signed URLs for secure image delivery
 
-🗄️ Data Architecture
+ # 🗄️ Data Architecture
 Firebase Structure
 
 
@@ -488,7 +488,7 @@ Recommendation Data (CSV/JSON)
                               * Popularity: Transaction counts by product and category
 
 
-🐛 Troubleshooting
+ # 🐛 Troubleshooting
 Common Issues
 
                               1. HuggingFace Space sleeping
@@ -513,7 +513,7 @@ Common Issues
                               * Ensure product names match exactly between files
 
 
-🧪 Testing
+ # 🧪 Testing
 Backend Tests
 
 
@@ -540,7 +540,7 @@ Manual Testing Checklist
                               * Cloudinary images display properly
 
 
-📝 Future Enhancements
+ # 📝 Future Enhancements
 
                               * Voice input support with speech-to-text
                               * Multi-language support (i18n)
@@ -555,11 +555,11 @@ Manual Testing Checklist
                               * Loyalty points and rewards program
 
 
-📄 License
+ # 📄 License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 
-👨‍💻 Author
+ # 👨‍💻 Author
 Built with ❤️ as a production-grade AI/ML portfolio project showcasing:
 
                               * Multi-agent LLM systems
@@ -569,7 +569,7 @@ Built with ❤️ as a production-grade AI/ML portfolio project showcasing:
                               * Recommendation algorithms
 
 
-🙏 Acknowledgments
+ # 🙏 Acknowledgments
 
                               * HuggingFace for free GPU-powered Space hosting
                               * Groq for blazing-fast Llama 3.1 inference
@@ -581,13 +581,14 @@ Built with ❤️ as a production-grade AI/ML portfolio project showcasing:
 ________________
 
 
-⭐ Star this repo if you find it helpful!
+ # ⭐ Star this repo if you find it helpful!
 
 
-🔗 Try the live demo: 
+ # 🔗 Try the live demo: 
  Backend API: https:  https://huggingface.co/spaces/Nachikxt91/cafe-chatbot
  
  Mobile App Build:  https://expo.dev/accounts/nacxt/projects/coffee_shop_app/builds/0f22b913-93c3-4427-a5e2-96b51b3f2405
+
 
 
 
