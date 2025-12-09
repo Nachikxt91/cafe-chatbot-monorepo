@@ -202,34 +202,65 @@ Press a for Android emulator
 Or scan the QR code with the Expo Go app on your phone
 
 
+
 🎯 Key Features
+
 Multi-Agent Conversation Flow
+
                         1. User sends message → Guard Agent validates request
+                        
                         2. Classification Agent determines intent (details/order/recommendation)
+                        
                         3. Appropriate specialized agent processes request
+                        
                         4. Order Taking Agent can trigger Recommendation Agent for upselling
+                        
                         5. Response returned to frontend with proper state management
+                        
+
 Recommendation System
+
                         * Apriori-based: "Customers who ordered Latte also bought Croissant"
+                        
                         * Popularity: Top items overall or by category
+                        
                         * Smart Trigger: Automatically suggests items during order process
+                        
                         * Confidence Scoring: Recommendations ranked by confidence levels
+                        
+
 Order Management
+
                         * Step-by-step order collection (6-step process)
+                        
                         * Real-time menu validation against Firebase data
+                        
                         * Order modification support
+                        
                         * Cart persistence in conversation memory
+                        
                         * Final confirmation with itemized pricing and total
+                        
+
 Image & Data Management
+
                         * Cloudinary Integration: Optimized image delivery for product photos
+                        
                         * Firebase Realtime Database: Fast key-value storage for menu items, prices, categories
+                        
                         * Responsive Images: Automatic image optimization based on device capabilities
+                        
+
+
 
 📡 API Endpoints
+
 🔗 Backend API (HuggingFace Spaces)
+
 
 Base URL:
 https://nachikxt91-cafe-chatbot.hf.space
+
 
 POST /query — Main Chatbot Interaction
 Request Body
@@ -243,6 +274,7 @@ Request Body
     ]
   }
 }
+
 
 Example Response
 {
@@ -261,34 +293,58 @@ Example Response
   }
 }
 
+
 GET /health — Health Check - Returns simple service availability status.
+
 
 GET / — API Status & Version Info - Returns metadata about the deployed service.
 
 
 🌐 Deployment
+
 Backend - HuggingFace Spaces
+
 The backend is deployed on HuggingFace Spaces with Docker runtime:
+                             
                               * Live URL: https://huggingface.co/spaces/Nachikxt91/cafe-chatbot
+                              
                               * Runtime: Docker with Python 3.12-slim
+                             
                               * Port: 7860 (HF Spaces default)
+                              
                               * Auto-deployment: Pushes to dedicated backend repo trigger rebuilds
+
 Environment Setup on HF Spaces:
+                             
                               1. Navigate to Space Settings → Variables
+                             
                               2. Add secrets:
+                            
                               * GROQ_API_KEY
+                          
                               * MODEL_NAME
+                            
                               * PINECONE_API_KEY (optional)
+                            
                               * PINECONE_INDEX_NAME (optional)
+
 Frontend - Expo EAS Build
+
 The mobile app is built and deployed using Expo Application Services:
+                             
                               * Build URL: https://expo.dev/accounts/nacxt/projects/coffee_shop_app/builds/0f22b913-93c3-4427-a5e2-96b51b3f2405
+                             
                               * Project: coffee_shop_app
+                              
                               * Account: nacxt
+                             
                               * Auto-deployment: Pushes to dedicated frontend repo trigger EAS builds
 
+
 🚀 Environment Setup for EAS (Expo Application Services)
+
 🔐 Configure EAS Secrets
+
 
 Run the following commands to securely store environment variables in Expo:
 
@@ -296,42 +352,61 @@ eas secret:create --name FIREBASE_API_KEY --value your_value --scope project
 eas secret:create --name CLOUDINARY_API_KEY --value your_value --scope project
 eas secret:create --name GROQ_API_KEY --value your_value --scope project
 
+
 🛠️ Build Commands
+
 1️⃣ Install EAS CLI
 npm install -g eas-cli
+
 
 2️⃣ Login to Expo
 eas login
 
+
 3️⃣ Configure Project for EAS
 eas build:configure
 
+
 📱 Create Builds
+
 Android Build
 eas build --platform android --profile production
 
+
 iOS Build
 eas build --platform ios --profile production
+
 
 📤 Submit to App Stores
 eas submit --platform android
 eas submit --platform ios
 
 
+
 Monorepo vs Deployment Repos
+                            
                               * This Monorepo: Contains complete source code for development
+                             
                               * Backend Deployment Repo: Streamlined repo with only coffee_shop_app/ for HF Spaces
+                             
                               * Frontend Deployment Repo: Streamlined repo with only python_code/ for Expo EAS
 
+
 This separation allows for:
+                              
                               * Cleaner CI/CD pipelines
+                             
                               * Faster deployment builds
+                            
                               * Independent versioning
 
+                             
                               * Reduced repository size for each platform
+
 📦 Dependencies
+
 Backend (requirements.txt)
-text
+
                               * fastapi==0.104.1
                               * uvicorn[standard]==0.24.0
                               * pydantic==2.5.0
@@ -342,7 +417,9 @@ text
                               * python-dotenv==1.0.0
 
 
+
 Frontend (package.json highlights)
+
                               * expo: ~54.0.13
                               * react: 19.1.0
                               * react-native: 0.81.4
@@ -352,14 +429,18 @@ Frontend (package.json highlights)
                               * cloudinary-react-native: ^1.3.0
                               * axios: ^1.12.2
                               * nativewind: ^2.0.11
+
 🎨 UI Components
+
                               * ChatScreen: Main conversation interface with typing indicators
                               * ProductList: Browse menu items with Cloudinary images
                               * CartView: Order summary with real-time total calculation
                               * SearchArea: Product search with category filters
                               * MessageBubbles: Differentiated UI for user/agent messages
                               * AgentIndicator: Visual feedback showing which agent is responding
+
 🔐 Security
+
                               * Non-root user in Docker container (user: appuser)
                               * Environment variable management via platform secrets
                               * Guard agent filters inappropriate/malicious requests
@@ -367,9 +448,11 @@ Frontend (package.json highlights)
                               * CORS configuration for production
                               * Firebase security rules for database access
                               * Cloudinary signed URLs for secure image delivery
+
 🗄️ Data Architecture
 Firebase Structure
-json
+
+
                                {
                                  "products": {
                                    "product_id_1": {
@@ -385,8 +468,9 @@ json
 
 
 
+
 Cloudinary Image Naming Convention
-text
+
                               * products/
                               *   ├── cappuccino_product.jpg
                               *   ├── latte_featured.jpg
@@ -394,12 +478,16 @@ text
 
 
 
+
 Recommendation Data (CSV/JSON)
+
                               * Apriori: Item-to-item confidence scores
                               * Popularity: Transaction counts by product and category
 
+
 🐛 Troubleshooting
 Common Issues
+
                               1. HuggingFace Space sleeping
                               * Spaces on free tier sleep after inactivity
                               * First request may take 30-60 seconds to wake up
@@ -421,21 +509,26 @@ Common Issues
                               * Check data format matches expected schema
                               * Ensure product names match exactly between files
 
+
 🧪 Testing
 Backend Tests
-bash
+
+
                               * cd coffee_shop_app
                               * pytest tests/  # Add your test files
 
 
 
+
 Frontend Tests
-bash
+
                               * cd python_code
                               * npm test
 
 
+
 Manual Testing Checklist
+
                               * Guard agent blocks inappropriate requests
                               * Classification routes to correct agents
                               * Order flow completes successfully
@@ -443,7 +536,9 @@ Manual Testing Checklist
                               * Firebase data loads correctly
                               * Cloudinary images display properly
 
+
 📝 Future Enhancements
+
                               * Voice input support with speech-to-text
                               * Multi-language support (i18n)
                               * Payment integration (Stripe/Razorpay)
@@ -456,18 +551,23 @@ Manual Testing Checklist
                               * Push notifications for order status
                               * Loyalty points and rewards program
 
+
 📄 License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
+
 👨‍💻 Author
 Built with ❤️ as a production-grade AI/ML portfolio project showcasing:
+
                               * Multi-agent LLM systems
                               * Full-stack mobile development
                               * Cloud deployment and DevOps
                               * Real-time database integration
                               * Recommendation algorithms
 
+
 🙏 Acknowledgments
+
                               * HuggingFace for free GPU-powered Space hosting
                               * Groq for blazing-fast Llama 3.1 inference
                               * LangChain for agent framework and orchestration
@@ -480,8 +580,10 @@ ________________
 
 ⭐ Star this repo if you find it helpful!
 
+
 🔗 Try the live demo: 
  Backend API: https:  https://huggingface.co/spaces/Nachikxt91/cafe-chatbot
  
  Mobile App Build:  https://expo.dev/accounts/nacxt/projects/coffee_shop_app/builds/0f22b913-93c3-4427-a5e2-96b51b3f2405
+
 
